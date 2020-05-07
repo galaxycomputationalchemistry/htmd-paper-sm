@@ -1,16 +1,16 @@
 {
-   "uuid":"50c92df1-c281-447c-930a-96983d2f6756",
+   "uuid":"85c2663a-aa71-441c-a267-3ce5fc481fd8",
    "tags":[
       "cheminformatics",
       "moleculardynamics"
    ],
    "format-version":"0.1",
    "name":"Protein-ligand HTMD simulation",
-   "version":8,
+   "version":10,
    "steps":{
       "0":{
          "tool_id":"toolshed.g2.bx.psu.edu/repos/bgruening/get_pdb/get_pdb/0.1.0",
-         "tool_version":null,
+         "tool_version":"0.1.0",
          "outputs":[
             {
                "type":"pdb",
@@ -62,7 +62,7 @@
          "workflow_outputs":[
             {
                "output_name":"output",
-               "uuid":"d55be623-afbf-4e84-983e-581d7d17dde9",
+               "uuid":"8ae71d20-eb45-41e2-a06a-e5b69f7bb26b",
                "label":null
             }
          ],
@@ -88,7 +88,7 @@
       },
       "2":{
          "tool_id":"toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/1.1.1",
-         "tool_version":null,
+         "tool_version":"1.1.1",
          "outputs":[
             {
                "type":"input",
@@ -112,7 +112,7 @@
          "id":2,
          "tool_shed_repository":{
             "owner":"bgruening",
-            "changeset_revision":"74a8bef53a00",
+            "changeset_revision":"fb4ff3c42cd3",
             "name":"text_processing",
             "tool_shed":"toolshed.g2.bx.psu.edu"
          },
@@ -142,7 +142,7 @@
       },
       "3":{
          "tool_id":"toolshed.g2.bx.psu.edu/repos/bgruening/openbabel_compound_convert/openbabel_compound_convert/2.4.2.2.0",
-         "tool_version":null,
+         "tool_version":"2.4.2.2.0",
          "outputs":[
             {
                "type":"input",
@@ -196,7 +196,7 @@
       },
       "4":{
          "tool_id":"toolshed.g2.bx.psu.edu/repos/chemteam/gmx_setup/gmx_setup/2019.1.4",
-         "tool_version":null,
+         "tool_version":"2019.1.4",
          "outputs":[
             {
                "type":"top",
@@ -234,7 +234,7 @@
                "id":2
             }
          },
-         "tool_state":"{\"__page__\": null, \"pdb_input\": \"{\\\"__class__\\\": \\\"ConnectedValue\\\"}\", \"capture_log\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"water\": \"\\\"tip3p\\\"\", \"ff\": \"\\\"oplsaa\\\"\", \"ignore_h\": \"\\\"false\\\"\"}",
+         "tool_state":"{\"__page__\": null, \"pdb_input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"capture_log\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"water\": \"\\\"tip3p\\\"\", \"ff\": \"\\\"amber99sb\\\"\", \"ignore_h\": \"\\\"false\\\"\"}",
          "id":4,
          "tool_shed_repository":{
             "owner":"chemteam",
@@ -250,7 +250,10 @@
          },
          "label":null,
          "inputs":[
-
+            {
+               "name":"pdb_input",
+               "description":"runtime parameter for tool GROMACS initial setup"
+            }
          ],
          "position":{
             "top":220,
@@ -262,7 +265,7 @@
       },
       "5":{
          "tool_id":"toolshed.g2.bx.psu.edu/repos/chemteam/ambertools_acpype/ambertools_acpype/19.11",
-         "tool_version":null,
+         "tool_version":"19.11",
          "outputs":[
             {
                "type":"itp",
@@ -319,7 +322,7 @@
       },
       "6":{
          "tool_id":"toolshed.g2.bx.psu.edu/repos/chemteam/gmx_merge_topology_files/gmx_merge_topology_files/3.2.0",
-         "tool_version":null,
+         "tool_version":"3.2.0",
          "outputs":[
             {
                "type":"top",
@@ -343,17 +346,17 @@
             }
          ],
          "input_connections":{
-            "lig_gro":{
-               "output_name":"gro_output",
-               "id":5
+            "prot_gro":{
+               "output_name":"output2",
+               "id":4
             },
             "prot_top":{
                "output_name":"output1",
                "id":4
             },
-            "prot_gro":{
-               "output_name":"output2",
-               "id":4
+            "lig_gro":{
+               "output_name":"gro_output",
+               "id":5
             },
             "lig_top":{
                "output_name":"output",
@@ -401,7 +404,7 @@
       },
       "7":{
          "tool_id":"toolshed.g2.bx.psu.edu/repos/chemteam/gmx_editconf/gmx_editconf/2019.1.4",
-         "tool_version":null,
+         "tool_version":"2019.1.4",
          "outputs":[
             {
                "type":"gro",
@@ -449,7 +452,7 @@
       },
       "8":{
          "tool_id":"toolshed.g2.bx.psu.edu/repos/chemteam/gmx_solvate/gmx_solvate/2019.1.4",
-         "tool_version":null,
+         "tool_version":"2019.1.4",
          "outputs":[
             {
                "type":"gro",
@@ -523,7 +526,7 @@
       },
       "9":{
          "tool_id":"toolshed.g2.bx.psu.edu/repos/chemteam/gmx_em/gmx_em/2019.1.4",
-         "tool_version":null,
+         "tool_version":"2019.1.4",
          "outputs":[
             {
                "type":"gro",
@@ -590,7 +593,7 @@
       },
       "10":{
          "tool_id":"toolshed.g2.bx.psu.edu/repos/chemteam/gmx_sim/gmx_sim/2019.1.4.1",
-         "tool_version":null,
+         "tool_version":"2019.1.4.1",
          "outputs":[
             {
                "type":"gro",
@@ -603,6 +606,10 @@
             {
                "type":"cpt",
                "name":"output5"
+            },
+            {
+               "type":"edr",
+               "name":"output6"
             },
             {
                "type":"txt",
@@ -618,6 +625,11 @@
             {
                "output_name":"output1",
                "uuid":"5974c691-8501-45b2-9d47-45379a49fa38",
+               "label":null
+            },
+            {
+               "output_name":"output6",
+               "uuid":"eb8aa43f-5768-4063-bdc9-fa77a6be3c33",
                "label":null
             },
             {
@@ -640,7 +652,7 @@
                "id":9
             }
          },
-         "tool_state":"{\"__page__\": null, \"capture_log\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"gro_input\": \"{\\\"__class__\\\": \\\"ConnectedValue\\\"}\", \"sets\": \"{\\\"ensemble\\\": \\\"nvt\\\", \\\"mdp\\\": {\\\"__current_case__\\\": 1, \\\"constraints\\\": \\\"all-bonds\\\", \\\"coulombtype\\\": \\\"PME\\\", \\\"cutoffscheme\\\": \\\"Verlet\\\", \\\"integrator\\\": \\\"md\\\", \\\"md_steps\\\": \\\"50000\\\", \\\"mdpfile\\\": \\\"default\\\", \\\"rcoulomb\\\": \\\"1.0\\\", \\\"rlist\\\": \\\"1.0\\\", \\\"rvdw\\\": \\\"1.0\\\", \\\"step_length\\\": \\\"0.0002\\\", \\\"temperature\\\": \\\"300\\\", \\\"write_freq\\\": \\\"1000\\\"}}\", \"top_input\": \"{\\\"__class__\\\": \\\"ConnectedValue\\\"}\", \"outps\": \"{\\\"cpt_out\\\": \\\"true\\\", \\\"edr_out\\\": \\\"false\\\", \\\"str\\\": \\\"gro\\\", \\\"tpr_out\\\": \\\"false\\\", \\\"traj\\\": \\\"xtc\\\", \\\"xvg_out\\\": \\\"false\\\"}\", \"inps\": \"{\\\"cpt_in\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"itp_in\\\": {\\\"__class__\\\": \\\"ConnectedValue\\\"}, \\\"ndx_in\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\"}",
+         "tool_state":"{\"__page__\": null, \"capture_log\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"gro_input\": \"{\\\"__class__\\\": \\\"ConnectedValue\\\"}\", \"sets\": \"{\\\"ensemble\\\": \\\"nvt\\\", \\\"mdp\\\": {\\\"__current_case__\\\": 1, \\\"constraints\\\": \\\"all-bonds\\\", \\\"coulombtype\\\": \\\"PME\\\", \\\"cutoffscheme\\\": \\\"Verlet\\\", \\\"integrator\\\": \\\"md\\\", \\\"md_steps\\\": \\\"50000\\\", \\\"mdpfile\\\": \\\"default\\\", \\\"rcoulomb\\\": \\\"1.0\\\", \\\"rlist\\\": \\\"1.0\\\", \\\"rvdw\\\": \\\"1.0\\\", \\\"step_length\\\": \\\"0.0002\\\", \\\"temperature\\\": \\\"300\\\", \\\"write_freq\\\": \\\"1000\\\"}}\", \"top_input\": \"{\\\"__class__\\\": \\\"ConnectedValue\\\"}\", \"outps\": \"{\\\"cpt_out\\\": \\\"true\\\", \\\"edr_out\\\": \\\"true\\\", \\\"str\\\": \\\"gro\\\", \\\"tpr_out\\\": \\\"false\\\", \\\"traj\\\": \\\"xtc\\\", \\\"xvg_out\\\": \\\"false\\\"}\", \"inps\": \"{\\\"cpt_in\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"itp_in\\\": {\\\"__class__\\\": \\\"ConnectedValue\\\"}, \\\"ndx_in\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\"}",
          "id":10,
          "tool_shed_repository":{
             "owner":"chemteam",
@@ -681,7 +693,7 @@
       },
       "11":{
          "tool_id":"toolshed.g2.bx.psu.edu/repos/chemteam/gmx_sim/gmx_sim/2019.1.4.1",
-         "tool_version":null,
+         "tool_version":"2019.1.4.1",
          "outputs":[
             {
                "type":"gro",
@@ -694,6 +706,10 @@
             {
                "type":"cpt",
                "name":"output5"
+            },
+            {
+               "type":"edr",
+               "name":"output6"
             },
             {
                "type":"txt",
@@ -709,6 +725,11 @@
             {
                "output_name":"output1",
                "uuid":"9949fefe-42c2-463b-8a1a-695ad3bd7e88",
+               "label":null
+            },
+            {
+               "output_name":"output6",
+               "uuid":"7d5cbb1e-cec6-4852-b5e0-23ee30db391d",
                "label":null
             },
             {
@@ -735,7 +756,7 @@
                "id":10
             }
          },
-         "tool_state":"{\"__page__\": null, \"capture_log\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"gro_input\": \"{\\\"__class__\\\": \\\"ConnectedValue\\\"}\", \"sets\": \"{\\\"ensemble\\\": \\\"npt\\\", \\\"mdp\\\": {\\\"__current_case__\\\": 1, \\\"constraints\\\": \\\"all-bonds\\\", \\\"coulombtype\\\": \\\"PME\\\", \\\"cutoffscheme\\\": \\\"Verlet\\\", \\\"integrator\\\": \\\"md\\\", \\\"md_steps\\\": \\\"50000\\\", \\\"mdpfile\\\": \\\"default\\\", \\\"rcoulomb\\\": \\\"1.0\\\", \\\"rlist\\\": \\\"1.0\\\", \\\"rvdw\\\": \\\"1.0\\\", \\\"step_length\\\": \\\"0.0002\\\", \\\"temperature\\\": \\\"300\\\", \\\"write_freq\\\": \\\"1000\\\"}}\", \"top_input\": \"{\\\"__class__\\\": \\\"ConnectedValue\\\"}\", \"outps\": \"{\\\"cpt_out\\\": \\\"true\\\", \\\"edr_out\\\": \\\"false\\\", \\\"str\\\": \\\"gro\\\", \\\"tpr_out\\\": \\\"false\\\", \\\"traj\\\": \\\"xtc\\\", \\\"xvg_out\\\": \\\"false\\\"}\", \"inps\": \"{\\\"cpt_in\\\": {\\\"__class__\\\": \\\"ConnectedValue\\\"}, \\\"itp_in\\\": {\\\"__class__\\\": \\\"ConnectedValue\\\"}, \\\"ndx_in\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\"}",
+         "tool_state":"{\"__page__\": null, \"capture_log\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"gro_input\": \"{\\\"__class__\\\": \\\"ConnectedValue\\\"}\", \"sets\": \"{\\\"ensemble\\\": \\\"npt\\\", \\\"mdp\\\": {\\\"__current_case__\\\": 1, \\\"constraints\\\": \\\"all-bonds\\\", \\\"coulombtype\\\": \\\"PME\\\", \\\"cutoffscheme\\\": \\\"Verlet\\\", \\\"integrator\\\": \\\"md\\\", \\\"md_steps\\\": \\\"50000\\\", \\\"mdpfile\\\": \\\"default\\\", \\\"rcoulomb\\\": \\\"1.0\\\", \\\"rlist\\\": \\\"1.0\\\", \\\"rvdw\\\": \\\"1.0\\\", \\\"step_length\\\": \\\"0.0002\\\", \\\"temperature\\\": \\\"300\\\", \\\"write_freq\\\": \\\"1000\\\"}}\", \"top_input\": \"{\\\"__class__\\\": \\\"ConnectedValue\\\"}\", \"outps\": \"{\\\"cpt_out\\\": \\\"true\\\", \\\"edr_out\\\": \\\"true\\\", \\\"str\\\": \\\"gro\\\", \\\"tpr_out\\\": \\\"false\\\", \\\"traj\\\": \\\"xtc\\\", \\\"xvg_out\\\": \\\"false\\\"}\", \"inps\": \"{\\\"cpt_in\\\": {\\\"__class__\\\": \\\"ConnectedValue\\\"}, \\\"itp_in\\\": {\\\"__class__\\\": \\\"ConnectedValue\\\"}, \\\"ndx_in\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\"}",
          "id":11,
          "tool_shed_repository":{
             "owner":"chemteam",
@@ -772,7 +793,7 @@
       },
       "12":{
          "tool_id":"toolshed.g2.bx.psu.edu/repos/chemteam/gmx_sim/gmx_sim/2019.1.4.1",
-         "tool_version":null,
+         "tool_version":"2019.1.4.1",
          "outputs":[
             {
                "type":"gro",
