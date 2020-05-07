@@ -21,4 +21,4 @@ This directory contains Galaxy workflows for the tutorial. Details are described
   * EU history: https://cheminformatics.usegalaxy.eu/u/sbray/h/hsp90-htmd-analysis
 
 * Docking  (multiple ligand):
-  * EU history: https://usegalaxy.eu/u/sbray/h/protein-ligand-docking-6hhr
+  * EU history: https://cheminformatics.usegalaxy.eu/u/sbray/h/protein-ligand-docking-6hhr
