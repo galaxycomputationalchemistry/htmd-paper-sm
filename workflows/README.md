@@ -10,4 +10,12 @@ This directory contains Galaxy workflows for the tutorial. Details are described
   * ZA workflow: https://galaxy-compchem.ilifu.ac.za/u/sbray/w/protein-ligand-htmd-sim
   * EU history: https://usegalaxy.eu/u/sbray/h/hsp90-htmd-simulation
 
+* Analysis (single ligand):
+  * EU workflow: https://usegalaxy.eu/u/sbray/w/protein-ligand-md-analysis
+  * ZA workflow: https://galaxy-compchem.ilifu.ac.za/u/sbray/w/protein-ligand-md-analysis
+  * EU history: 
 
+* Analysis (multiple ligand):
+  * EU workflow: https://usegalaxy.eu/u/sbray/w/protein-ligand-htmd-analysis
+  * ZA workflow: https://galaxy-compchem.ilifu.ac.za/u/sbray/w/protein-ligand-htmd-analysis
+  * EU history: https://usegalaxy.eu/u/sbray/h/hsp90-htmd-analysis
